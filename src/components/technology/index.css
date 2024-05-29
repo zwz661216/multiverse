@@ -3,7 +3,7 @@
   flex: 1;
 }
 .background {
-  background-image: url("//www.feedmusic.com/images/presentation-background.jpg");
+  background-image: url("http://www.feedmusic.com/images/presentation-background.jpg");
   width: 100%;
   height: 100%;
   transition: all 36s ease-out;

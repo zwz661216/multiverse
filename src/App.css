@@ -289,7 +289,7 @@ header .logo:after,header .logo:before {
 }
 
 header .logo:before {
-  background-image: url('//www.feedmusic.com/images/logo-white.svg')
+  background-image: url('http://www.feedmusic.com/images/logo-white.svg')
 }
 
 header .logo:after {
@@ -297,7 +297,7 @@ header .logo:after {
   -webkit-opacity: 0;
   -moz-opacity: 0;
   opacity: 0;
-  background-image: url('//www.feedmusic.com/images/logo.svg')
+  background-image: url('http://www.feedmusic.com/images/logo.svg')
 }
 
 header .toggle-button {

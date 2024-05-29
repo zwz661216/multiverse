@@ -5,7 +5,7 @@ import "./index.css";
 export default ({change}:{change:(num:number)=>void}) => {
   return (
     <>
-      <Video url={'//www.feedmusic.com/videos/intro.mp4'}></Video>
+      <Video url={'http://www.feedmusic.com/videos/intro.mp4'}></Video>
       <Text change={change}></Text>
     </>
   );
