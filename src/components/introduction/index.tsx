@@ -2,10 +2,12 @@ import { useCallback, WheelEvent, useEffect, useRef, useMemo, useState } from "r
 import { throttle } from "lodash-es"; 
 import { json } from "./const";
 import "./index.css";
+//@ts-ignore
+import intro from '../../intro.mp4'
 export default ({change}:{change:(num:number)=>void}) => {
   return (
     <>
-      <Video url={'http://www.feedmusic.com/videos/intro.mp4'}></Video>
+      <Video url={intro}></Video>
       <Text change={change}></Text>
     </>
   );
