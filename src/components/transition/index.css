@@ -1,19 +1,21 @@
 .transition {
+  position: absolute;
   display: none;
-  height: 100%;
   width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
   background-color: var(--bg-color, #fff);
 }
+
 .fade-enter,
 .fade-appear,
 .fade-exit-done {
   transform: var(--fade-start, translateY(-100%));
   z-index: 0;
 }
+
 .fade-enter-done,
 .fade-appear-active,
 .fade-enter-active {

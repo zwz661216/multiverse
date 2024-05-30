@@ -1,0 +1,10 @@
+*.yaml
+dist
+www
+build
+.vscode
+.husky
+..github
+*.ico
+*.svg
+*.snap

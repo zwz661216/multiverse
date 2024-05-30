@@ -20,19 +20,30 @@
     "react-transition-group": "^4.4.5",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
-    "cross-env":"^7.0.3"
+    "cross-env": "^7.0.3"
   },
   "scripts": {
-    "start": "cross-env DISABLE_ESLINT_PLUGIN=true && react-scripts start",
-    "build": "cross-env DISABLE_ESLINT_PLUGIN=true && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "prepare": "husky install",
+    "start": "react-app-rewired start",
+    "build": "cross-env DISABLE_ESLINT_PLUGIN=true && react-app-rewired build",
+    "commit": "cz",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix",
+    "lint:style": "stylelint \"./**/*.{css,less,html}\" ",
+    "lint:style:fix": "stylelint \"./**/*.{css,less,html}\" --fix",
+    "format": "prettier --write ./**/*.{html,ts,tsx,cjs,json,md,js}",
+    "lint-staged": "lint-staged -c .lintstagedrc.cjs"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "import/no-anonymous-default-export": "off",
+      "no-script-url": "off",
+      "jsx-a11y/anchor-has-content": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -47,6 +58,29 @@
     ]
   },
   "devDependencies": {
-    "@types/react-transition-group": "^4.4.10"
+    "@types/react-transition-group": "^4.4.10",
+    "commitizen": "4.2.4",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^3.0.3",
+    "postcss": "^8.4.24",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "stylelint": "^15.7.0",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-order": "^6.0.3",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "cz-customizable.config.cjs"
+    }
   }
 }
