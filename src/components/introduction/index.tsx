@@ -145,7 +145,6 @@ function Text() {
           })`
         );
       });
-      console.log(numRef.current, lengthRef.current);
       if (totalTop === totalRef.current.length) {
         status.current = 'top';
         dispatch(updateDistance(numRef.current / lengthRef.current));

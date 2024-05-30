@@ -14,7 +14,6 @@ export default () => {
         return;
       }
       const deltaY = Math.abs(event.deltaY);
-      console.log(deltaY);
       const last = ref.current;
       const num = last + deltaY;
       if (num > 50) {
