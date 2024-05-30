@@ -2,7 +2,7 @@ import { useCallback, WheelEvent, ReactEventHandler, useEffect, useRef, useMemo,
 import { throttle } from 'lodash-es';
 import { json } from './const';
 import intro from '../../assets/intro.mp4';
-import { useDispatch, updateDistance, updateNav, updateLoading } from '../../store';
+import { useDispatch, updateDistance, updateNav, updateLoading, useContextData } from '../../store';
 import './index.less';
 
 export default () => {
@@ -33,12 +33,14 @@ export default () => {
 
 function Video({ url, type = 'video/mp4' }: { url: string; type?: string }) {
   const dispatch = useDispatch();
-
+  const data = useContextData();
   const ref = useRef<HTMLDivElement>(null);
+  const videoSizeRef = useRef<[number, number]>([0, 0]);
   const [rect, setRect] = useState<[string, string, string, string]>(['100%', '100%', '0', '0']);
   const onLoadedData: ReactEventHandler<HTMLVideoElement> = useCallback(
     (event) => {
       const { videoWidth, videoHeight } = event.currentTarget;
+      videoSizeRef.current = [videoWidth, videoHeight];
       if (ref.current) {
         const { width, height } = ref.current.getBoundingClientRect();
         if (videoWidth / videoHeight === width / height) {
@@ -59,6 +61,37 @@ function Video({ url, type = 'video/mp4' }: { url: string; type?: string }) {
     },
     [dispatch]
   );
+
+  const loadingRef = useRef(data.loading);
+  useEffect(() => {
+    loadingRef.current = data.loading;
+  }, [data.loading]);
+  useEffect(() => {
+    const io = new ResizeObserver(([entry], observer) => {
+      if (loadingRef.current) {
+        return;
+      }
+      const [videoWidth, videoHeight] = videoSizeRef.current;
+      const { width, height } = entry.target.getBoundingClientRect();
+      if (videoWidth / videoHeight === width / height) {
+        setRect([`${width}px`, `${height}px`, '0', '0']);
+        return;
+      }
+      if (videoWidth / videoHeight > width / height) {
+        const curVideoWidth = (height * videoWidth) / videoHeight;
+        setRect([`${curVideoWidth}px`, `${height}px`, '0', `-${(curVideoWidth - width) / 2}px`]);
+        return;
+      }
+      const curVideoHeight = (width * videoHeight) / videoWidth;
+      setRect([`${width}px`, `${curVideoHeight}px`, `-${(curVideoHeight - height) / 2}px`, '0']);
+    });
+    if (ref.current) {
+      io.observe(ref.current);
+    }
+    return () => {
+      io.disconnect();
+    };
+  }, []);
 
   return (
     <div style={{ position: 'absolute', inset: 0, zIndex: -1 }} ref={ref}>
