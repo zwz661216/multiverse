@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.490bdfb8.css",
-    "main.js": "./static/js/main.876a30b7.js",
+    "main.css": "./static/css/main.c59513b7.css",
+    "main.js": "./static/js/main.a36ed4a1.js",
     "static/js/453.e596a790.chunk.js": "./static/js/453.e596a790.chunk.js",
     "static/media/intro.mp4": "./static/media/intro.09ccfd1e26d7c326dba1.mp4",
+    "static/media/presentation-background.jpg": "./static/media/presentation-background.c08a059d1ab4e33094cc.jpg",
+    "static/media/awwwards-ribbon.png": "./static/media/awwwards-ribbon.af91b8166dcd6081aebb.png",
+    "static/media/logo.svg": "./static/media/logo.d0cbf72d8fd1b05da99e.svg",
+    "static/media/logo-white.svg": "./static/media/logo-white.ec67353190d483062838.svg",
     "index.html": "./index.html",
-    "main.490bdfb8.css.map": "./static/css/main.490bdfb8.css.map",
-    "main.876a30b7.js.map": "./static/js/main.876a30b7.js.map",
+    "main.c59513b7.css.map": "./static/css/main.c59513b7.css.map",
+    "main.a36ed4a1.js.map": "./static/js/main.a36ed4a1.js.map",
     "453.e596a790.chunk.js.map": "./static/js/453.e596a790.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.490bdfb8.css",
-    "static/js/main.876a30b7.js"
+    "static/css/main.c59513b7.css",
+    "static/js/main.a36ed4a1.js"
   ]
 }
