@@ -15,6 +15,9 @@ const Header = () => {
     [dispatch]
   );
   useEffect(() => {
+    if (widthRef.current === 0) {
+      return;
+    }
     const num = Math.abs(data.distance) * widthRef.current;
     if (Math.abs(widthRef.current - num) < 0.5) {
       dispatch(updateNav('introduction'));
@@ -23,9 +26,16 @@ const Header = () => {
   }, [data.distance, dispatch]);
   const widthRef = useRef(0);
   useEffect(() => {
+    const io = new ResizeObserver(([entry], observer) => {
+      widthRef.current = entry.target.getBoundingClientRect().width;
+    });
     if (ref.current) {
       widthRef.current = ref.current.getBoundingClientRect().width;
+      io.observe(ref.current);
     }
+    return () => {
+      io.disconnect();
+    };
   }, []);
   return (
     <header className="header">
