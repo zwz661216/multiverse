@@ -6,6 +6,7 @@ import './index.css';
 export default () => {
   const ref = useRef(0);
   const dispatch = useDispatch();
+
   const throttled = useRef(
     throttle((event: WheelEvent<HTMLDivElement>) => {
       if (event.deltaY > 0) {

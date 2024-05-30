@@ -5,6 +5,8 @@ import { useDispatch, updateDistance, updateNav, updateLoading } from '../../sto
 import './index.less';
 
 export default () => {
+  console.log('mobile');
+
   return (
     <>
       <Video url={intro}></Video>
@@ -152,8 +154,6 @@ function Text() {
       }
       dispatch(updateDistance(numRef.current / lengthRef.current));
       status.current = '';
-
-      // console.log(deltaY);
     },
     [dispatch]
   );

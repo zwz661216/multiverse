@@ -7,14 +7,9 @@ import TechnologyMobile from './components/technology/mobile';
 import { useContextData } from './store';
 import Header from './components/header';
 import './App.css';
-
-const mobileEnvReg =
-  /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i;
-
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(window.navigator.userAgent);
 export default function App() {
   const data = useContextData();
-  const isMobile = (globalThis?.navigator?.userAgent || ''.match(mobileEnvReg) || []).length > 0;
-
   return (
     <>
       <div className={data.loading ? 'loading' : 'loading none'}></div>

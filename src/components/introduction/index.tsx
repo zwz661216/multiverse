@@ -6,6 +6,7 @@ import { useDispatch, updateDistance, updateNav, updateLoading } from '../../sto
 import './index.less';
 
 export default () => {
+  console.log('pc');
   return (
     <>
       <div className="cineslider-slide">
@@ -101,7 +102,6 @@ function Text() {
       lengthRef.current = rect.width;
     }
   }, []);
-
   const throttled = useRef(
     throttle((event: WheelEvent<HTMLDivElement>) => {
       // event.deltaY < 0 ? '向下':'向上'
