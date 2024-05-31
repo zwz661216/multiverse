@@ -15,7 +15,16 @@
   margin-top: -68px;
 }
 
-.starwars-wrapper p:first-child {
+.starwars-wrapper-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.starwars-wrapper .starwars-wrapper-text:first-child {
   position: relative;
 }
 
@@ -74,7 +83,7 @@
   color: #fff;
 }
 
-@media (width <= 991px) {
+@media (width <= 767px) {
   .cineslider-slide-intro-paragraph {
     display: none !important;
   }
